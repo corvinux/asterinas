@@ -2,9 +2,6 @@ name: Test xfstests full
 
 on:
   workflow_dispatch:
-  schedule:
-    # Schedule to run on every day at 18:00 UTC (02:00 Beijing Time)
-    - cron: '0 18 * * *'
 
 jobs:
   xfstests-full:

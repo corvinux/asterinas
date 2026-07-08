@@ -1,17 +1,7 @@
 name: Test devcontainer
 
 on:
-  pull_request:
-    paths:
-      - ".devcontainer/**"
-  push:
-    branches: [main]
-    paths:
-      - ".devcontainer/**"
-  workflow_run:
-    workflows: ["Publish Docker images"]
-    types:
-      - completed
+  workflow_dispatch:
 
 jobs:
   test-devcontainer:

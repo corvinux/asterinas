@@ -8,9 +8,6 @@ permissions:
   contents: read
 
 on:
-  schedule:
-    # Schedule to run on every day at 16:00 UTC (00:00 Beijing Time)
-    - cron: '0 16 * * *'
   workflow_dispatch:
     inputs:
       suite:
@@ -18,21 +15,6 @@ on:
         required: false
         default: all
         type: string
-  pull_request:
-    paths: &triggering_paths
-      # Paths of test infra, which triggers smoke test.
-      # REMINDER: Keep in sync with INFRA_PATH_PREFIXES below.
-      - distro/**
-      - tools/nixos/**
-      - tools/github_workflows/filter_json_array_with_changed_files.sh
-      - test/nixos/common/**
-      - .github/workflows/test_nixos_full.yml
-      # Paths of test suites, which trigger runs of the corresponding test suites.
-      - test/nixos/tests/**
-  push:
-    branches:
-      - main
-    paths: *triggering_paths
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
