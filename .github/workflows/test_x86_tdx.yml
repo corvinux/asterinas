@@ -8,7 +8,7 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        image: ['asterinas/asterinas:0.18.0-20260618', 'asterinas/osdk:0.18.0-20260618']
+        image: ['asterinas/asterinas:0.18.0-20260702', 'asterinas/osdk:0.18.0-20260702']
       fail-fast: false
     container:
       image: ${{ matrix.image }}
@@ -24,7 +24,7 @@ jobs:
   boot-test:
     runs-on: self-hosted
     container:
-      image: asterinas/asterinas:0.18.0-20260618
+      image: asterinas/asterinas:0.18.0-20260702
       options: -v /dev:/dev --privileged
     strategy:
       fail-fast: false
@@ -47,7 +47,7 @@ jobs:
   regression-test:
     runs-on: self-hosted
     container:
-      image: asterinas/asterinas:0.18.0-20260618
+      image: asterinas/asterinas:0.18.0-20260702
       options: -v /dev:/dev --privileged
     strategy:
       fail-fast: false
@@ -70,7 +70,7 @@ jobs:
   conformance-test:
     runs-on: self-hosted
     container:
-      image: asterinas/asterinas:0.18.0-20260618
+      image: asterinas/asterinas:0.18.0-20260702
       options: -v /dev:/dev --privileged
     strategy:
       fail-fast: false

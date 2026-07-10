@@ -49,6 +49,7 @@
 //! ```
 #![no_std]
 #![deny(unsafe_code)]
+#![feature(int_from_ascii)]
 
 extern crate alloc;
 
@@ -60,6 +61,7 @@ macro_rules! __log_prefix {
 }
 
 mod dispatch;
+mod early;
 pub mod parse;
 pub mod types;
 mod unimplemented;
@@ -127,7 +129,7 @@ macro_rules! define_kv_param_early {
 ///
 /// The stored value type `S::Value` must implement
 /// [`crate::parse::ParseRepeatableParamValue`]. This crate provides a default
-/// implementation for `Vec<T>` where `T: FromStr`.
+/// implementation for `Vec<T>` where `T: ParseParamValue`.
 ///
 /// # Examples
 ///

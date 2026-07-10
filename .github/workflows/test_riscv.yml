@@ -7,7 +7,7 @@ jobs:
   basic-test:
     runs-on: ubuntu-latest
     container:
-      image: asterinas/asterinas:0.18.0-20260618
+      image: asterinas/asterinas:0.18.0-20260702
       options: -v /dev:/dev --privileged
       volumes:
         # Map the following directories on the host into the container so that
@@ -34,7 +34,7 @@ jobs:
   integration-test:
     runs-on: ubuntu-latest
     container:
-      image: asterinas/asterinas:0.18.0-20260618
+      image: asterinas/asterinas:0.18.0-20260702
       options: -v /dev:/dev --privileged
       volumes:
         # Map the following directories on the host into the container so that
